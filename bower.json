@@ -1,0 +1,27 @@
+{
+  "name": "limitCharacts",
+  "version": "0.0.1",
+  "homepage": "https://github.com/juanbrujo/limitCharacts",
+  "authors": [
+    "Jorge Epuñan <juanbrujo@gmail.com>"
+  ],
+  "description": "Limits and trim the amount of characters added to any input/textarea tag",
+  "main": "dist/limitCharacts.js",
+  "keywords": [
+    "javascript",
+    "limit",
+    "characters",
+    "count",
+    "textarea",
+    "input",
+    "form"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

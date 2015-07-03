@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>limitCharacts</title>
+	<!--link href='http://fonts.googleapis.com/css?family=Merriweather:400,700' rel='stylesheet' type='text/css'-->
+  <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/libs/tachyons.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="wi-100">
+  <div class="dt pvx pvxl-ns dark">
+    <header class="bg-pulsate tc dtc wi-100 v-mid">
+      <div class="tc mbm mbn-ns">
+        <h1 class="f3 f2-m mega-ns b db-ns mrs mrn-ns mbn ttu mtn pulse-letters">
+          limitCharacts
+        </h1>
+        <p class="f5 f3-ns dib db-ns fw1 phs mbn mbx-ns aqua">
+          Limits and trim the amount of characters added to any input/textarea tag.
+          <small class="ws-nowrap db f5 mts mtm-ns">0.8kb (minified)</small>
+        </p>
+        </div>
+        <div class="pvm">
+           <a title="limitCharacts" href="//github.com/juanbrujo/limitCharacts"
+           class="small link tc br2 bw1 pas pam-ns btn--animated">View on Github ▸</a>
+        </div>
+      </div>
+    </header>
+  </div>
+  <main>
+    
+		<section class="bg-near-white dt h-100 navy pvx pvxl-ns">
+      <div class="dtc v-mid">
+    		<div class="mw7 center phm phl-ns tl tl-ns">
+          <h1 class="f4 ttu book">Live Demo</h1>
+          <hr>
+          <section class="f4 f3-ns list pln lh-copy">
+            <p>Type anything in any of the following input/textareas:</p>
+            <article class="pvs live-demo">
+              <textarea class="textA" cols="50" rows="5" data-count=".message-1"></textarea>
+              <span class="message-1"></span>
+            </article>
+            <article class="pvs live-demo">
+              <textarea class="textA" cols="50" rows="5" data-count=".message-2"></textarea>
+              <input readonly class="message-2" size="3">
+            </article>
+            <article class="pvs live-demo">
+              <input class="limitedtextfield" size="30" type="text" data-count="#countdown"
+               maxlength="15"><br>
+              <p>You have <input readonly type="text" id="countdown" size="3" value=""> characters left.</p>
+            </article>
+          </section>
+        </div>
+      </div>
+		</section>
+    <section class="bg-near-white dt h-100 dark pvx pvxl-ns">
+        <div class="mw7 center phm phl-ns tl tl-ns">
+          <h1 class="f4 ttu book">Use</h1>
+          <hr>
+          <section class="f4 f3-ns list pln lh-copy">
+            <article class="pvs">
+              <pre>var elem = document.querySelectorAll('input'),
+    limit = 100;
+limitCharacts(elem,limit);</pre>
+            </article>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+	<footer class="bg-white phm pvx pvxl-ns bt b--light-gray h-50">
+    <small class="f5 mw7 db center lh-copy">
+      <strong><a href="https://github.com/juanbrujo/limitCharacts">limitCharacts</a></strong> is released under <a href="//mit-license.org/">MIT License</a>
+      <br class="dn db-ns">
+      &copy; 2015 - Jorge Epuñan H. | <a href="http://www.twitter.com/csslab">@csslab</a>
+    </small>
+  </footer>
+
+	<script src="../dist/limitCharacts.min.js"></script>
+	<script>
+
+  var textElem = document.querySelectorAll("textarea");
+  limitCharacts(textElem,100);
+
+  var inputElem = document.querySelectorAll(".limitedtextfield");
+  limitCharacts(inputElem,15);
+
+	</script>
+</body>
+</html>

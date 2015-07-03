@@ -1,0 +1,12 @@
+body {
+	font-family: 'Titillium Web', sans-serif;
+	color: #2C3E50;
+}
+.dark {
+	background: #002f4b;
+	background: linear-gradient(to right bottom, #002f4b, #dc4225);
+	color: #ECF0F1;
+}
+footer a {
+	color: #dc4225;
+}
