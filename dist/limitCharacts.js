@@ -12,8 +12,10 @@
 function limitCharacts(limitField, limitNum) {
     "use strict";
     function limiter(elem, countElem) {
-        if (elem.value.length > limitNum) elem.value = elem.value.substring(0, limitNum); else {
-            var currentCount = limitNum - elem.value.length;
+        var pairs = elem.value.split(/([\uD800-\uDBFF][\uDC00-\uDFFF])/), chars = [], elemLength = 0;
+        for (var p in pairs) "" !== pairs[p] && (null !== pairs[p].match(/([\uD800-\uDBFF][\uDC00-\uDFFF])/) ? chars.push(pairs[p]) : chars = chars.concat(pairs[p].split("")));
+        if (elemLength = chars.length, elemLength > limitNum) elem.value = chars.splice(0, limitNum).join(""); else {
+            var currentCount = limitNum - elemLength;
             valueCountElem(countElem, currentCount);
         }
     }
