@@ -1,41 +1,53 @@
-function limitCharacts(limitField, limitNum) {
+(function(){
 
-  "use strict";
+  function limitCharacts(limitField, limitNum) {
 
-  if( limitField.length ) {
+    "use strict";
 
-    [].forEach.call(limitField, function(elem) {
-      var dataCount = elem.getAttribute("data-count"),
-          countElem = document.querySelector(dataCount);
+    if( limitField.length ) {
 
-      valueCountElem(countElem,limitNum);
+      [].forEach.call(limitField, function(elem) {
+        var dataCount = elem.getAttribute("data-count"),
+            countElem = document.querySelector(dataCount);
 
-      elem.addEventListener("keydown",function(){
-        limiter(elem,countElem);
+        valueCountElem(countElem,limitNum);
+
+        elem.addEventListener("keydown",function(){
+          limiter(elem,countElem);
+        });
+        elem.addEventListener("keyup",function(){
+          limiter(elem,countElem);
+        });
+
       });
-      elem.addEventListener("keyup",function(){
-        limiter(elem,countElem);
-      });
 
-    });
-
-  }
-
-  function limiter(elem,countElem){
-    if (elem.value.length > limitNum) {
-      elem.value = elem.value.substring(0, limitNum);
-    } else {
-      var currentCount = limitNum - elem.value.length;
-      valueCountElem(countElem,currentCount);
     }
-  }
 
-  function valueCountElem(elem,count){
-    if( elem instanceof HTMLInputElement && elem.type === "text" ){
-      elem.value = count;
-    } else {
-      elem.textContent = count;
+    function limiter(elem,countElem){
+      if (elem.value.length > limitNum) {
+        elem.value = elem.value.substring(0, limitNum);
+      } else {
+        var currentCount = limitNum - elem.value.length;
+        valueCountElem(countElem,currentCount);
+      }
     }
+
+    function valueCountElem(elem,count){
+      if( elem instanceof HTMLInputElement && elem.type === "text" ){
+        elem.value = count;
+      } else {
+        elem.textContent = count;
+      }
+    }
+
   }
 
-}
+  if(typeof define === "function" && define.amd) {
+    define(limitCharacts);
+  } else if (typeof module !== "undefined") {
+    module.exports = limitCharacts;
+  } else {
+    window.limitCharacts = limitCharacts;
+  }
+
+})();
